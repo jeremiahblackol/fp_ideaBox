@@ -7,10 +7,15 @@ body {
 
 form {
   position: absolute;
+  display: flex;
   border: 3px dotted red;
   top: 0;
   width: 100%;
   height: 49%;
+}
+
+input {
+  height: 12%;
 }
 
 .idea-cards {
