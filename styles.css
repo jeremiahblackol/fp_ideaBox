@@ -15,7 +15,11 @@ form {
 }
 
 input {
-  height: 12%;
+  height: 8%;
+}
+
+button {
+  height: 8%;
 }
 
 .idea-cards {
