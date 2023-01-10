@@ -1,7 +1,7 @@
 function captureIdea(title, body) {
-  return {
+  return title && body ? {
     title: title,
     body: body,
-  } 
+  } : false;
 }
 

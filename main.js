@@ -1,27 +1,83 @@
-var submitButton = document.querySelector("button");
-submitButton.disabled = true;
+let wholeBody = document.querySelector("body");
+// does not make sense for this to be out here...might need to be a CSS class that i can add or remove
+// how can all of the function be enclosed???
+var storedIdeas = [];
 
-submitButton.addEventListener("click", function() {
+
+wholeBody.addEventListener("click", function(event) {
   var titleInput = document.querySelector("#title");
-  var bodyInput = document.querySelector("#body");
-  var checkForIdea;
-  if (titleInput && bodyInput) {
-    checkForIdea = captureIdea(titleInput.value, bodyInput.value)
-    sendThisData(checkForIdea) 
+  var bodyInput = document.querySelector("#idea-body");
+  var submitButton = document.querySelector("button");
+  let errorMessageArea = document.querySelector("#form-error-message");
+  let cardArea = document.querySelector("#idea-cards")
+  
+  if (event.target === submitButton) {
+    var checkForIdea = captureIdea(titleInput.value, bodyInput.value);
+    return checkForIdea ? renderIdeaCards(createIdeaCards(storeIdea(checkForIdea, storedIdeas))): tellUserAddInfo(titleInput.value, bodyInput.value);
   }
+  
+  function tellUserAddInfo(title, body) {
+    if (!title) {
+      errorMessageArea.innerText = "Please give your idea a title!";
+    } else if (!body) {
+      errorMessageArea.innerText = "Please give your idea a body!";
+    } 
+  };
+  
+  function storeIdea(idea, dataStore) {
+    let localStoredIdeas = dataStore.slice();
+    localStoredIdeas.push(idea);
+    storedIdeas = localStoredIdeas;
+    clearAfterStorage();
+    return storedIdeas;
+  };
 
-  if (!checkForIdea) {
-    // what do I want to happen --> i can probably eliminate this conditional's logic if I disable the bu
-    alert("need to add some info")
-  }
+  function clearAfterStorage() {
+    errorMessageArea.innerText = "";
+    titleInput.value = "";
+    bodyInput.value = "";
+  };
 
-  function sendThisData(anyFunctionsReturnValue) {
-    if (typeof anyFunctionsReturnValue === Object) {
-      generateCards(anyFunctionsReturnValue)
-    }
-  }
+  function createIdeaCards(allCardsInfo) {
+    return allCardsInfo.map((card) => {
+      card = `
+      <div class="card-styles">
+         <h3>${card.title}</h3>
+         <p>${card.body}</p>
+       </div>`
+       return card;
+    });
+  };
 
-  function generateCards(ideaDetails) {
-    var cardSection = document.querySelector("")
-  }
+  function renderIdeaCards(cardsToDisplay) {
+    cardArea.innerHTML = "";
+    cardsToDisplay.forEach((card) => cardArea.innerHTML += card);
+  };
+
+
+  // if (titleInput && bodyInput) {
+  //   checkForIdea = captureIdea(titleInput.value, bodyInput.value)
+  //   sendThisData(checkForIdea) 
+  // }
+
+
+  // function sendThisData(anyFunctionsReturnValue) {
+  //   if (typeof anyFunctionsReturnValue === Object) {
+  //     generateCards(anyFunctionsReturnValue)
+  //     return storeIdeas(anyFunctionsReturnValue) // --> this should return an array, with anyFunctionsReturnValue appended
+  //     // to the end of it
+  //   }
+  // }
+
+  // function generateCards(card) {
+  //   var cardSection = document.querySelector("#idea-cards");
+  //   // dont forget to add the classes below to CSS
+  //   cardSection += `
+  //   <div class="card-styles">
+  //     <h3>${ideaDetails.title}</h3>
+  //     <p>${ideaDetails.body}</p>
+  //   </div>
+  //   `;
+
+  // }
 });
