@@ -23,7 +23,7 @@ button {
 }
 
 .idea-cards-container {
-  border: 3px solid green;
+  /* border: 3px solid green; */
   position: fixed;
   overflow: auto;
   bottom: 0;
@@ -37,7 +37,7 @@ button {
   grid-template-columns: auto auto auto;
   background-color: #2196F3;
   padding: 10px;
-
+  background-image: linear-gradient(to right bottom, #f48498, #f28696, #f08893, #ed8a92, #eb8c90, #ec9497, #ee9d9e, #efa5a5, #f4b5b6, #f8c5c7, #fcd6d8, #ffe6e8);
 }
 
 .card-styles {
