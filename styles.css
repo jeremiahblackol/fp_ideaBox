@@ -12,6 +12,7 @@ form {
   top: 0;
   width: 100%;
   height: 49%;
+  background: #fff6f6;
 }
 
 input {
@@ -41,11 +42,11 @@ button {
 }
 
 .card-styles {
-  /* border: 3px double pink; */
+  border-radius: 2%;
   width: 90%;
   height: 41vh;
   background-image: linear-gradient(to bottom, #f2ccc3, #f6c7bf, #f9c1bc, #fcbcba, #ffb6b9);
-  box-shadow: -10px 12px 2px 1px #ed92a2;
+  box-shadow: -10px 12px 10px 1px #ed92a2;
   text-align: left;
   padding-left: 10%;
 }
