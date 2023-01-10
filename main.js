@@ -34,7 +34,7 @@ submitButton.addEventListener("click", function(event) {
 
   function createIdeaCards(allCardsInfo) {
     return allCardsInfo.map((card) => {
-      card = `<div class="card-styles"><h3>${card.title}</h3><p>${card.body}</p></div>`
+      card = `<div class="card-styles"><button>🌳</button><button>X</button><h3>${card.title}</h3><p>${card.body}</p></div>`
       return card;
     });
   };
