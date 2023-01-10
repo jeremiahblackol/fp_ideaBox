@@ -34,7 +34,15 @@ submitButton.addEventListener("click", function(event) {
 
   function createIdeaCards(allCardsInfo) {
     return allCardsInfo.map((card) => {
-      card = `<div class="card-styles"><h3>${card.title}</h3><p>${card.body}</p></div>`
+      card = `
+      <div class="card-styles">
+        <div class="button-container">
+          <button class="favorite-and-delete-styles">❤️</button>
+          <button class="favorite-and-delete-styles">🗑</button>
+        </div>
+        <h3>${card.title}</h3>
+        <p>${card.body}</p>
+      </div>`
       return card;
     });
   };
@@ -44,3 +52,7 @@ submitButton.addEventListener("click", function(event) {
     cardsToDisplay.forEach((card) => cardArea.innerHTML += card);
   };
 });
+
+
+
+//////////////HEY FOOO, GET THE STYLING DONE TOMORROW MORNING!!!!!!!/////////////////
