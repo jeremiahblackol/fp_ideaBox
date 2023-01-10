@@ -32,26 +32,33 @@ submitButton.addEventListener("click", function(event) {
     bodyInput.value = "";
   };
 
-  function createIdeaCards(allCardsInfo) {
-    return allCardsInfo.map((card) => {
-      card = `
-      <div class="card-styles">
-        <div class="button-container">
-          <button class="favorite-and-delete-styles">❤️</button>
-          <button class="favorite-and-delete-styles">🗑</button>
-        </div>
-        <h3>${card.title}</h3>
-        <p>${card.body}</p>
-      </div>`
-      return card;
-    });
-  };
-
-  function renderIdeaCards(cardsToDisplay) {
-    cardArea.innerHTML = "";
-    cardsToDisplay.forEach((card) => cardArea.innerHTML += card);
-  };
 });
+
+function createIdeaCards(allCardsInfo) {
+  return allCardsInfo.map((card) => {
+    card = `
+    <div class="card-styles">
+      <div class="button-container">
+        <button class="favorite-and-delete-styles">❤️</button>
+        <button id=${card.id} class="favorite-and-delete-styles delete-button">🗑</button>
+      </div>
+      <h3>${card.title}</h3>
+      <p>${card.body}</p>
+    </div>`
+    return card;
+  });
+};
+cardArea.addEventListener("click", function(event) {
+  // let deleteButton = document.querySelector("#deleteButton");
+  if (event.target.classList.contains("delete-button")) {
+    renderIdeaCards(createIdeaCards(deleteIdea(event.target.id, storedIdeas)))
+  }
+});
+
+function renderIdeaCards(cardsToDisplay) {
+  cardArea.innerHTML = "";
+  cardsToDisplay.forEach((card) => cardArea.innerHTML += card);
+};
 
 
 
