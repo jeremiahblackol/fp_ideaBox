@@ -41,7 +41,16 @@ button {
 }
 
 .card-styles {
-  border: 3px double pink;
+  /* border: 3px double pink; */
   width: 90%;
   height: 41vh;
+  background-image: linear-gradient(to bottom, #f2ccc3, #f6c7bf, #f9c1bc, #fcbcba, #ffb6b9);
+  box-shadow: -10px 12px 2px 1px #ed92a2;
+  text-align: left;
+  padding-left: 10%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
 }
