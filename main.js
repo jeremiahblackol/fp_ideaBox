@@ -44,3 +44,5 @@ submitButton.addEventListener("click", function(event) {
     cardsToDisplay.forEach((card) => cardArea.innerHTML += card);
   };
 });
+
+//////////////HEY FOOO, GET THE STYLING DONE TOMORROW MORNING!!!!!!!/////////////////

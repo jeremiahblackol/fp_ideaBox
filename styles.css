@@ -37,4 +37,6 @@ button {
 
 .card-styles {
   border: 3px double pink;
+  width: 90%;
+  height: 41vh;
 }
