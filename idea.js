@@ -2,12 +2,14 @@ function captureIdea(title, body) {
   return title && body ? {
     title: title,
     body: body,
+    id: Date.now(),
   } : false;
 }
 
-function storeIdea(idea, dataStore) {
-  let localStoredIdeas = dataStore.slice();
-  localStoredIdeas.push(idea);
-  dataStore = localStoredIdeas;
-  return dataStore;
-};
+function deleteIdea(id, dataStore) {
+    let ideaToDelete = dataStore.find((idea) => idea.id == id);
+    let indexToDelete = dataStore.indexOf(ideaToDelete)
+    dataStore.splice(indexToDelete, 1)
+    return dataStore
+  }
+    
