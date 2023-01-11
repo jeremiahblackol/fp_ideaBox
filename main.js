@@ -31,7 +31,6 @@ submitButton.addEventListener("click", function(event) {
     titleInput.value = "";
     bodyInput.value = "";
   };
-
 });
 
 function createIdeaCards(allCardsInfo) {
@@ -48,8 +47,8 @@ function createIdeaCards(allCardsInfo) {
     return card;
   });
 };
+
 cardArea.addEventListener("click", function(event) {
-  // let deleteButton = document.querySelector("#deleteButton");
   if (event.target.classList.contains("delete-button")) {
     renderIdeaCards(createIdeaCards(deleteIdea(event.target.id, storedIdeas)))
   }
