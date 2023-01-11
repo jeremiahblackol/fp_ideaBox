@@ -1,8 +1,9 @@
 let wholeBody = document.querySelector("body");
 var titleInput = document.querySelector("#title");
 var bodyInput = document.querySelector("#idea-body");
-var submitButton = document.querySelector("button");
+var submitButton = document.querySelector("#submit-button");
 let errorMessageArea = document.querySelector("#form-error-message");
+let filterFavoriteButton = document.querySelector("#filter-favorite-ideas");
 let cardArea = document.querySelector("#idea-cards");
 var storedIdeas = [];
 
@@ -48,6 +49,20 @@ function createIdeaCards(allCardsInfo) {
     return card;
   });
 };
+
+filterFavoriteButton.addEventListener("click", function() {
+  if (filterFavoriteButton.innerText === "Filter Favorites") {
+    console.log("hell0")
+    renderIdeaCards(createIdeaCards(filterFavorites(storedIdeas)));
+    filterFavoriteButton.innerText = "Show All Ideas"
+  } else {
+    console.log("g00dbye")
+    renderIdeaCards(createIdeaCards(storedIdeas))
+    filterFavoriteButton.innerText = "Filter Favorites"
+  }
+});
+
+
 
 cardArea.addEventListener("click", function(event) {
   if (event.target.classList.contains("delete-button")) {

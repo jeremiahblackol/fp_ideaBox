@@ -23,7 +23,10 @@ function favoriteIdea(id, dataStore) {
   } else {
     ideaToFavorite.favorite = true;
   }
-  console.log(ideaToFavorite)
   return dataStore
+};
+
+function filterFavorites(dataStore) {
+  return dataStore.filter((card) => card.favorite)
 };
     
