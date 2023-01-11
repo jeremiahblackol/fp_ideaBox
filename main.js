@@ -35,10 +35,11 @@ submitButton.addEventListener("click", function(event) {
 
 function createIdeaCards(allCardsInfo) {
   return allCardsInfo.map((card) => {
+    let isFavorite = card.favorite ? "❤️‍🔥" : "❤️"
     card = `
     <div class="card-styles">
       <div class="button-container">
-        <button class="favorite-and-delete-styles">❤️</button>
+        <button id=${card.id} class="favorite-and-delete-styles favorite-button">${isFavorite}</button>
         <button id=${card.id} class="favorite-and-delete-styles delete-button">🗑</button>
       </div>
       <h3>${card.title}</h3>
@@ -51,6 +52,10 @@ function createIdeaCards(allCardsInfo) {
 cardArea.addEventListener("click", function(event) {
   if (event.target.classList.contains("delete-button")) {
     renderIdeaCards(createIdeaCards(deleteIdea(event.target.id, storedIdeas)))
+  }
+
+  if (event.target.classList.contains("favorite-button")) {
+    renderIdeaCards(createIdeaCards(favoriteIdea(event.target.id, storedIdeas)))
   }
 });
 
