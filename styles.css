@@ -16,7 +16,8 @@ form {
   height: 45%;
   background: #fff6f6;
   padding-left: 5%;
-  padding-top: 5%;
+  padding-top: 2%;
+  padding-bottom: 2px;
 }
 
 input {
